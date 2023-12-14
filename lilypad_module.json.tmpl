@@ -1,0 +1,35 @@
+{
+  "machine": {
+    "gpu": 0,
+    "cpu": 1000,
+    "ram": 100
+  },
+  "job": {
+    "APIVersion": "V1beta1",
+    "Spec": {
+      "Deal": {
+        "Concurrency": 1
+      },
+      "Docker": {
+       "Entrypoint": [
+        "python", 
+        "app/app.py",
+        {{.GREET}}
+        ],
+        "Image": "bringhi/basic-lily@sha256:5cbf67a0a6ca01ef45a98af7c1c952e7cd2b0f28e780ce07d7b8bd54ee8a0909"
+      },
+      "Engine": "Docker",
+      "Network": {
+        "Type": "None"
+      },
+      "PublisherSpec": {
+        "Type": "Estuary"
+      },
+      "Resources": {
+        "GPU": ""
+      },
+      "Timeout": 1800,
+      "Verifier": "Noop"
+    }
+  }
+}
