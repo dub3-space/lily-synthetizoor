@@ -1,25 +1,13 @@
-
 FROM python:3.10.10-buster
 
+WORKDIR /app
 
-### We make sure that we have authorizations to write on /tmp
-RUN chmod 777 -R /tmp && chmod o+t -R /tmp 
+COPY /src /app
+COPY requirements.txt /app
+RUN mkdir outputs
 
-# Copy the current directory contents into the container
-COPY ./src /app
+# RUN python -m pip install --upgrade pip
 
-#tun the app
-ENTRYPOINT ["python3", "/app/app.py"]
+RUN pip install --no-cache-dir -r requirements.txt
 
-
-
-
-
-
-
-
-
-
-
-
-
+CMD ["python3", "app.py"]
