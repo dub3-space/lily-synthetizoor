@@ -11,6 +11,7 @@ mkdir /tmp/output_synth
 mkdir /tmp/input_synth
 docker run  -v /tmp/output_synth:/outputs -v/tmp/input_synth:/inputs bringhi/synt:0.x 
 ```
+You need to put some file in /tmp/input_synth
 At the end you'll have something in your `/tmp/output_synth` folder
 
 ## Running it Lilypad
