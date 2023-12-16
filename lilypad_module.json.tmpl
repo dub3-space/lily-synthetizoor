@@ -30,21 +30,22 @@
       },
       "Timeout": 1800,
       "Verifier": "Noop",
-       "inputs": [
-                {
-                    "StorageSource": "IPFS",
-                    "Name": "inputs",
-                    "CID": {{.CID}},
-                    "path": "/inputs"
-                }
-            ],
-            "outputs": [
-                {
-                    "StorageSource": "IPFS",
-                    "Name": "outputs",
-                    "path": "/outputs"
-                }
-            ],
+      "inputs": [
+          {
+              "StorageSource": "IPFS",
+              "Name": "inputs",
+              "CID": {{.CID}},
+              "path": "/inputs"
+          }
+      ],
+      "outputs": [
+          {
+              "StorageSource": "IPFS",
+              "Name": "outputs",
+              "path": "/outputs"
+          }
+      ]
     }
   }
 }
+
