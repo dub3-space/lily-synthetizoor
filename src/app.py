@@ -1,4 +1,5 @@
 import os
+import shutil
 from venv import logger
 
 
@@ -28,6 +29,7 @@ from venv import logger
 
 
 input_dir = "/inputs"
+output_dir = "/outputs"
 
 def main():
     print("The app started")
@@ -43,8 +45,14 @@ def main():
 
     # I created a file named cane.txt in 
     for file in os.listdir(input_dir):
-        print(file)
-        logger.info(file)
+        file_path = os.path.join(input_dir, file)
+        print(f'Moving file: {file_path}')
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
+        destination_path = os.path.join(output_dir, file)
+        shutil.move(file_path, destination_path)
+        print(f'File moved to: {destination_path}')
+        logger.info(f'File moved to: {destination_path}')
 
 
 
