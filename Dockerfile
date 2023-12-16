@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY /src /app
 COPY requirements.txt /app
-RUN mkdir outputs
+
 
 # RUN python -m pip install --upgrade pip
 

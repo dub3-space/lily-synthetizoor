@@ -13,9 +13,10 @@
       "Docker": {
        "Entrypoint": [
         "python", 
-        "app.py"
+        "app.py",
+        {{.CID}}
         ],
-        "Image": "bringhi/synt@sha256:648d248167f476fdf8e8be450a9c9f2117cf525fd5a68b2affedf25b0e359e96"
+        "Image": "bringhi/synt@sha256:d3793fb5250cc9f2ca431c0828df21f7b2a5f6a1bd0b753acbecc8f6ab3cb09b"
       },
       "Engine": "Docker",
       "Network": {
@@ -28,7 +29,22 @@
         "GPU": ""
       },
       "Timeout": 1800,
-      "Verifier": "Noop"
+      "Verifier": "Noop",
+       "inputs": [
+                {
+                    "StorageSource": "IPFS",
+                    "Name": "inputs",
+                    "CID": {{.CID}},
+                    "path": "/inputs"
+                }
+            ],
+            "outputs": [
+                {
+                    "StorageSource": "IPFS",
+                    "Name": "outputs",
+                    "path": "/outputs"
+                }
+            ],
     }
   }
 }
