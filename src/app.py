@@ -1,6 +1,6 @@
-import os
-import shutil
+import sys
 from venv import logger
+import wave
 
 
 # don't do that, bacalhau jobs don't have access to interent
@@ -33,28 +33,36 @@ output_dir = "/outputs"
 
 def main():
     print("The app started")
-    # TODOS:
-    #   Get a file from IPFS NO!
-    #   get file from inputs folder instead
-    #   parse file 
-    #   output the file content
-    # Replace 'QmbGyyFwHGg7yutRXxGUcErgdhe97xwNdxSU6E26SHbmEn' with the actual hash
-    # file_hash = 'QmS6mcrMTFsZnT3wAptqEb8NpBPnv1H6WwZBMzEjT8SSDv'
-    # download_from_ipfs_gateway(file_hash)
+    file_path = f"{input_dir}/{sys.argv[1]}"
+    print("file_path", file_path)
+    
 
 
-    # I created a file named cane.txt in 
-    for file in os.listdir(input_dir):
-        file_path = os.path.join(input_dir, file)
-        print(f'Moving file: {file_path}')
-        if not os.path.exists(output_dir):
-            os.makedirs(output_dir)
-        destination_path = os.path.join(output_dir, file)
-        shutil.move(file_path, destination_path)
-        print(f'File moved to: {destination_path}')
-        logger.info(f'File moved to: {destination_path}')
+    # opening a file and pasting to /outputs folder
+    # for file in os.listdir(input_dir):
+    #     file_path = os.path.join(input_dir, file)
+    #     print(f'Moving file: {file_path}')
+    #     if not os.path.exists(output_dir):
+    #         os.makedirs(output_dir)
+    #     destination_path = os.path.join(output_dir, file)
+    #     shutil.move(file_path, destination_path)
+    #     print(f'File moved to: {destination_path}')
+    #     logger.info(f'File moved to: {destination_path}')
 
+    try:
+        with wave.open(file_path, "rb") as wave_file:
+            print("in try")
+            
+            frame_rate = wave_file.getframerate()
+            print("in try")
+            print(f"Frame rate of input audio: {frame_rate}")
+            num_channels = wave_file.getnchannels()
+            print(f"num_channels: {num_channels}")
 
+    except Exception as e:
+            logger.error(f"Cannot detect frame rate from input audio.... Error: {e}")
+
+    
 
 
 
