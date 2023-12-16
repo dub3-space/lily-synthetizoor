@@ -14,7 +14,7 @@
        "Entrypoint": [
         "python", 
         "app.py",
-        {{.CID}}
+        {{.URL}}
         ],
         "Image": "bringhi/synt@sha256:d3793fb5250cc9f2ca431c0828df21f7b2a5f6a1bd0b753acbecc8f6ab3cb09b"
       },
@@ -34,7 +34,7 @@
           {
               "StorageSource": "IPFS",
               "Name": "inputs",
-              "CID": {{.CID}},
+              "URL": {{.URL}},
               "path": "/inputs"
           }
       ],
