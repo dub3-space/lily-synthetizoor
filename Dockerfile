@@ -3,6 +3,7 @@ FROM python:3.10.10-buster
 WORKDIR /app
 
 COPY /src /app
+COPY /model /app
 COPY requirements.txt /app
 
 

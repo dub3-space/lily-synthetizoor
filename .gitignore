@@ -1,4 +1,5 @@
 .DS_Store
 commands.txt
-inputs/test.txt
-outputs/example.txt
+inputs/*
+outputs/*
+/model/*
