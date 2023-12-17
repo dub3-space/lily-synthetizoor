@@ -38,7 +38,7 @@ def main():
             
             
     config = XttsConfig()
-    model_path = os.path.join(os.path.dirname(__file__), '/model/config.json')
+    model_path = os.path.join(os.path.dirname(__file__), 'model/config.json')
     print("model_path",model_path)
     config.load_json(model_path)
     model = Xtts.init_from_config(config)
