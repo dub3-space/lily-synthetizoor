@@ -6,7 +6,9 @@ It uses [this repo](https://github.com/dub3-space/base-lily-module) as a templat
 
 ## Running with docker locally
 
+create venv with python 3.10.10
 ```
+pip pip install -r requirements.txt
 mkdir /tmp/output_synth
 mkdir /tmp/input_synth
 # need to copy a .wav file in input_synth
