@@ -1,4 +1,3 @@
-import os
 import sys
 from venv import logger
 import wave
@@ -44,9 +43,9 @@ def main():
             
             
     config = XttsConfig()
-    model_path = os.path.join(os.path.dirname(__file__), 'model/config.json')
-    print("model_path",model_path)
-    config.load_json(model_path)
+    # model_path = os.path.join(os.path.dirname(__file__), 'model/config.json')
+    # print("model_path",model_path)
+    config.load_json("model/config.json")
     model = Xtts.init_from_config(config)
     model.load_checkpoint(config, checkpoint_dir="model/", eval=True)
     print("model is loaded, my brotha")
@@ -74,19 +73,19 @@ def main():
                 num_channels = wave_file.getnchannels()
                 print(num_channels)
         except Exception as e:
-            print(f"Cannot detect frame rate from input audio.... Error: {e}")
+            logger.error(f"Cannot detect frame rate from input audio.... Error: {e}")
 
     except Exception as e:
-            print("ERROR",e)
+            logger.error("ERROR",e)
 
 
 
 
 if __name__ == '__main__':
     if len(sys.argv) < 6:  # Change 3 to the expected number of arguments
-        print("Missing some argument: run app.py sample_file_name sentence output_lang[it,eng,de,es,js,pt,tr] input_folder output_folder")
-        print("for instance run:")
-        print("python src/app.py fabri.wav \"ciao come stai?\" it inputs outputs")
+        logger.error("Missing some argument: run app.py sample_file_name sentence output_lang[it,eng,de,es,js,pt,tr] input_folder output_folder")
+        logger.error("for instance run:")
+        logger.error("python src/app.py fabri.wav \"ciao come stai?\" it inputs outputs")
         # in lilypad need to pass /inputs /outputs
         sys.exit(1)
     print("APP is starting....")
