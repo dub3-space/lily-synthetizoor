@@ -12,13 +12,19 @@ from scipy.io.wavfile import write
 # to run it from local just make folders mkdir /inputs and then past the sample file
 
 def main():
+    print("The app started")
     file_name = sys.argv[1]
     speech_data = sys.argv[2]
     output_lang = sys.argv[3]
     input_dir = sys.argv[4]
     output_dir = sys.argv[5]
     
-    print("The app started")
+    print("file_name", file_name)
+    print("speech_data",speech_data)
+    print("output_lang", output_lang)
+    print("input_dir",input_dir)
+    print("output_dir",output_dir)
+    
     sample_audio_file_path = f"{input_dir}/{file_name}"
     print("sample_audio_file_path", sample_audio_file_path)
     
@@ -83,5 +89,5 @@ if __name__ == '__main__':
         print("python src/app.py fabri.wav \"ciao come stai?\" it inputs outputs")
         # in lilypad need to pass /inputs /outputs
         sys.exit(1)
-        
+    print("APP is starting....")
     main()

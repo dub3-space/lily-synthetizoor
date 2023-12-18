@@ -14,7 +14,11 @@
        "Entrypoint": [
         "python", 
         "app.py",
-        {{.URL}}
+        {{.URL}},
+        {{.SENTENCE}},
+        {{.LANGUAGE}},
+        {{.INPUT_FOLDER}},
+        {{.OUTPUT_FOLDER}},
         ],
         "Image": "bringhi/synt@sha256:f11f3934311a573c55ff7efa742659ee1c1a75b0bedc7a08f847c21a618a7914"
       },
