@@ -1,3 +1,4 @@
+import os
 import sys
 from venv import logger
 import wave
@@ -12,19 +13,29 @@ from scipy.io.wavfile import write
 
 def main():
     print("The app started")
-    file_name = sys.argv[1]
-    speech_data = sys.argv[2]
-    output_lang = sys.argv[3]
-    input_dir = sys.argv[4]
-    output_dir = sys.argv[5]
     
-    print("file_name", file_name)
+    # that won't work on lilypad
+    # file_name = sys.argv[1]
+    
+    
+    
+    speech_data = sys.argv[1]
+    output_lang = sys.argv[2]
+    input_dir = sys.argv[3]
+    output_dir = sys.argv[4]
+    
+    # print("file_name", file_name)
     print("speech_data",speech_data)
     print("output_lang", output_lang)
     print("input_dir",input_dir)
     print("output_dir",output_dir)
     
-    sample_audio_file_path = f"{input_dir}/{file_name}"
+    for file in os.listdir(input_dir):
+        file_path = os.path.join(input_dir, file)
+        print(f'Retrieved file: {file_path}')
+       
+    
+    sample_audio_file_path = file_path
     print("sample_audio_file_path", sample_audio_file_path)
     
 
@@ -83,7 +94,7 @@ def main():
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 6:  # Change 3 to the expected number of arguments
+    if len(sys.argv) < 5:  # Change 3 to the expected number of arguments
         logger.error("Missing some argument: run app.py sample_file_name sentence output_lang[it,eng,de,es,js,pt,tr] input_folder output_folder")
         logger.error("for instance run:")
         logger.error("python src/app.py fabri.wav \"ciao come stai?\" it inputs outputs")
