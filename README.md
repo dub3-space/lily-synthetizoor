@@ -12,7 +12,12 @@ pip pip install -r requirements.txt
 mkdir /tmp/output_synth
 mkdir /tmp/input_synth
 # need to copy a .wav file in input_synth
-docker run  -v /tmp/output_synth:/outputs -v/tmp/input_synth:/inputs bringhi/synt:2.0  xxx.wav "ciao come stai?" it /inputs /outputs 
+
+# for linux/amd arch
+docker run  -v /tmp/output_synth:/outputs -v /tmp/input_synth:/inputs bringhi/synt:v6.1-amd64 'Ok, sono nato! buon giorno a tutti, mi chaimo dub3!' it /inputs /outputs
+
+# for linux/arm64/v8
+docker run  -v /tmp/output_synth:/outputs -v /tmp/input_synth:/inputs bringhi/synt:v6.1-arm 'Ok, sono nato! buon giorno a tutti, mi chaimo dub3!' it /inputs /outputs
 ```
 You need to put some file in /tmp/input_synth
 At the end you'll have something in your `/tmp/output_synth` folder
@@ -30,15 +35,15 @@ In the module, you can pass lilypad a URL where your sample file is stored (a fi
           }
       ],
 ```
-`command coming soon`
+to retrieve the input, you need to get the file from the os, looping thru the input folder.
 
 
 ## List of commits  and docker image to to attach to commands above
 | git tag | docker image | command
 |-----------------|-----------------|-----------------|
 | 0a57dc9cc4e37a11644bcdecb4107a20eba833d8   | bringhi/synt:0.6    | lilypad run github.com/dub3-space/lily-synthetizoor:0a57dc9cc4e37a11644bcdecb4107a20eba833d8 -i URL=https://bafkreiafqxh2jlmzjiuaoytga7ntu36gghww3y2bc6mrelbbg2nfijnz2u.ipfs.w3s.link/    |
-| xxx    | xxx    |
-| xxx    | xxx    |
+|  b4d2e078c3447e1df12588ee854360087ce7f081   | bringhi/synt:v6.0-arm (or amd)    |lilypad run github.com/dub3-space/lily-synthetizoor:b4d2e078c3447e1df12588ee854360087ce7f081 -i URL=https://bafybeif3qp2sd7qb67kjhds65b6qr5ecerib76cjclyo625ovledffabfu.ipfs.w3s.link/ -i SENTENCE='Ok, sono nato! buon giorno a tutti, mi chiamo dab three!' -i LANGUAGE=it  -i INPUT_FOLDER=/inputs -i OUTPUT_FOLDER=/outputs |
+
 
 
 

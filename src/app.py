@@ -14,17 +14,12 @@ from scipy.io.wavfile import write
 def main():
     print("The app started")
     
-    # that won't work on lilypad
-    # file_name = sys.argv[1]
-    
-    
     
     speech_data = sys.argv[1]
     output_lang = sys.argv[2]
     input_dir = sys.argv[3]
     output_dir = sys.argv[4]
     
-    # print("file_name", file_name)
     print("speech_data",speech_data)
     print("output_lang", output_lang)
     print("input_dir",input_dir)
@@ -39,11 +34,9 @@ def main():
     print("sample_audio_file_path", sample_audio_file_path)
     
 
-    # Just leaving this for debugging reasons
     try:
         with wave.open(sample_audio_file_path, "rb") as wave_file:
             
-            #  audio frame and channels
             frame_rate = wave_file.getframerate()
             print(f"Frame rate of input audio: {frame_rate}")
             num_channels = wave_file.getnchannels()
@@ -54,8 +47,6 @@ def main():
             
             
     config = XttsConfig()
-    # model_path = os.path.join(os.path.dirname(__file__), 'model/config.json')
-    # print("model_path",model_path)
     config.load_json("model/config.json")
     model = Xtts.init_from_config(config)
     model.load_checkpoint(config, checkpoint_dir="model/", eval=True)
@@ -78,7 +69,7 @@ def main():
         write(f'{output_dir}/output.wav', output_sample_rate, scaled)
         print("FILE IS READY BABY",{output_dir},"output.wav")
 
-        try: # Just leaving this for debugging reasons
+        try: 
             with wave.open(f'{output_dir}/output.wav', "rb") as wave_file:
                 frame_rate = wave_file.getframerate()
                 print(f"Frame rate of input audio: {frame_rate}")
@@ -94,7 +85,7 @@ def main():
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 5:  # Change 3 to the expected number of arguments
+    if len(sys.argv) < 5: 
         logger.error("Missing some argument: run app.py sample_file_name sentence output_lang[it,eng,de,es,js,pt,tr] input_folder output_folder")
         logger.error("for instance run:")
         logger.error("python src/app.py fabri.wav \"ciao come stai?\" it inputs outputs")
