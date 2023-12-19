@@ -1,6 +1,8 @@
 {
-  "machine": {
-    "gpu": 1
+"machine": {
+      "gpu": 1,
+      "cpu": 1000,
+      "ram": 100
   },
   "job": {
     "APIVersion": "V1beta1",
@@ -18,7 +20,7 @@
         {{.INPUT_FOLDER}},
         {{.OUTPUT_FOLDER}}
         ],
-        "Image": "bringhi/synt@sha256:7b01c7a9e7732b936b779d3d780e180f42c26e53078e9b66a90847f53a1870bb"
+        "Image": "bringhi/synt@sha256:31def637950bfafd5f9568dcdab359bb7524e3362d084a51d2832553df621626"
       },
       "Engine": "Docker",
       "Network": {
@@ -28,14 +30,14 @@
         "Type": "Estuary"
       },
       "Resources": {
-        "GPU": ""
+        "GPU": "1"
       },
-      "Timeout": 1800,
+      "Timeout": 4800,
       "Verifier": "Noop",
       "inputs": [
           {
               "URL": {{.URL}},
-              "Name": "cane.txt",
+              "Name": "fabri.wav",
               "StorageSource": "urlDownload",
               "path": "/inputs"
           }
