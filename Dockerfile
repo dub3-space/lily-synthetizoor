@@ -1,9 +1,5 @@
 # syntax=docker/dockerfile:1
-# THIS ONE IS WAY BETTEER ---> good for my arch...
-
-# Comments are provided throughout this file to help you get started.
-# If you need more help, visit the Dockerfile reference guide at
-# https://docs.docker.com/engine/reference/builder/
+# This one is good for linux/arm64/v8
 
 ARG PYTHON_VERSION=3.10.8
 FROM python:${PYTHON_VERSION}-slim as base
@@ -17,17 +13,6 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-# Create a non-privileged user that the app will run under.
-# See https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user
-# ARG UID=10001
-# RUN adduser \
-#     --disabled-password \
-#     --gecos "" \
-#     --home "/nonexistent" \
-#     --shell "/sbin/nologin" \
-#     --no-create-home \
-#     --uid "${UID}" \
-#     appuser
 
 # Download dependencies as a separate step to take advantage of Docker's caching.
 # Leverage a cache mount to /root/.cache/pip to speed up subsequent builds.
@@ -39,7 +24,6 @@ RUN apt-get update && apt-get install -y  gcc \
     libsndfile1-dev \
     g++ 
 
-# need rust for a library
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y 
 
 # # Add .cargo/bin to PATH
