@@ -42,7 +42,8 @@ to retrieve the input, you need to get the file from the os, looping thru the in
 | git tag | docker image | command
 |-----------------|-----------------|-----------------|
 | 0a57dc9cc4e37a11644bcdecb4107a20eba833d8   | bringhi/synt:0.6    | lilypad run github.com/dub3-space/lily-synthetizoor:0a57dc9cc4e37a11644bcdecb4107a20eba833d8 -i URL=https://bafkreiafqxh2jlmzjiuaoytga7ntu36gghww3y2bc6mrelbbg2nfijnz2u.ipfs.w3s.link/    |
-|  b4d2e078c3447e1df12588ee854360087ce7f081   | bringhi/synt:v6.0-arm (or amd)    |lilypad run github.com/dub3-space/lily-synthetizoor:b4d2e078c3447e1df12588ee854360087ce7f081 -i URL=https://bafybeif3qp2sd7qb67kjhds65b6qr5ecerib76cjclyo625ovledffabfu.ipfs.w3s.link/ -i SENTENCE='Ok, sono nato! buon giorno a tutti, mi chiamo dab three!' -i LANGUAGE=it  -i INPUT_FOLDER=/inputs -i OUTPUT_FOLDER=/outputs |
+|  b4d2e078c3447e1df12588ee854360087ce7f081  (CPU) | bringhi/synt:v6.0-arm (or amd)    |lilypad run github.com/dub3-space/lily-synthetizoor:b4d2e078c3447e1df12588ee854360087ce7f081 -i URL=https://bafybeif3qp2sd7qb67kjhds65b6qr5ecerib76cjclyo625ovledffabfu.ipfs.w3s.link/ -i SENTENCE='Ok, sono nato! buon giorno a tutti, mi chiamo dab three!' -i LANGUAGE=it  -i INPUT_FOLDER=/inputs -i OUTPUT_FOLDER=/outputs |
+|  a9b9916270879be6275ad297edd4c595c54a6536 (GPU)   | bringhi/synt:v6.0-arm (or amd)    |lilypad run github.com/dub3-space/lily-synthetizoor:a9b9916270879be6275ad297edd4c595c54a6536 -i URL=https://bafybeif3qp2sd7qb67kjhds65b6qr5ecerib76cjclyo625ovledffabfu.ipfs.w3s.link/ -i SENTENCE='Ok, I am live now! Good morning, everyone. call me dub three!' -i LANGUAGE=it  -i INPUT_FOLDER=/inputs -i OUTPUT_FOLDER=/outputs |
 
 
 
