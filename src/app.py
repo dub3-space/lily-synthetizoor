@@ -65,6 +65,7 @@ def main():
         output_sample_rate = sample_rate 
 
         write(f'{output_dir}/output.wav', output_sample_rate, scaled)
+        print("FILE IS READY BABY",{output_dir},"output.wav")
 
         try: # Just leaving this for debugging reasons
             with wave.open(f'{output_dir}/output.wav', "rb") as wave_file:
@@ -73,10 +74,10 @@ def main():
                 num_channels = wave_file.getnchannels()
                 print(num_channels)
         except Exception as e:
-            logger.error(f"Cannot detect frame rate from input audio.... Error: {e}")
+            print(f"Cannot detect frame rate from input audio.... Error: {e}")
 
     except Exception as e:
-            logger.error("ERROR",e)
+            print("ERROR",e)
 
 
 
