@@ -22,7 +22,7 @@ docker run  -v /tmp/output_synth:/outputs -v /tmp/input_synth:/inputs bringhi/sy
 You need to put some file in /tmp/input_synth
 At the end you'll have something in your `/tmp/output_synth` folder
 
-## Running it Lilypad
+## Running it with Lilypad
 Lilypad maps the input and output folders.
 In the module, you can pass lilypad a URL where your sample file is stored (a file on IPFS ). lily will download it and put it in the folder
 ```
